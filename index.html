@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty Workload Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div>
+      <h1>Faculty Workload Planner</h1>
+      <p>Department allocation and monitoring</p>
+    </div>
+    <nav id="nav">
+      <button data-view="dashboard" class="active">Dashboard</button>
+      <button data-view="faculty">Faculty</button>
+      <button data-view="courses">Courses</button>
+      <button data-view="allocate">Allocation</button>
+      <button data-view="semester">Semester view</button>
+    </nav>
+    <div class="auth">
+      <span id="role" class="badge"></span>
+      <button class="btn" id="authBtn"></button>
+    </div>
+  </aside>
+
+  <main>
+    <div id="alerts"></div>
+
+    <section id="dashboard" class="view">
+      <div class="head"><h2>Dashboard</h2><button class="btn" data-act="export">Download report (CSV)</button></div>
+      <div class="stats" id="stats"></div>
+      <h3 class="sub">Workload against limit</h3>
+      <div class="panel" id="loadList"></div>
+      <p><button class="btn sm danger adm" data-act="reset">Reset to demo data</button></p>
+    </section>
+
+    <section id="faculty" class="view" hidden>
+      <div class="head"><h2>Faculty profiles</h2><button class="btn pri adm" data-act="addF">Add faculty</button></div>
+      <div class="tw"><table>
+        <thead><tr><th>Name</th><th>Designation</th><th>Limit (units)</th><th>Workload</th><th class="adm">Actions</th></tr></thead>
+        <tbody id="facBody"></tbody>
+      </table></div>
+    </section>
+
+    <section id="courses" class="view" hidden>
+      <div class="head"><h2>Courses</h2><button class="btn pri adm" data-act="addC">Add course</button></div>
+      <div class="tw"><table>
+        <thead><tr><th>Code</th><th>Course</th><th>Semester</th><th>Units</th><th>Slot</th><th>Faculty</th><th class="adm">Actions</th></tr></thead>
+        <tbody id="crsBody"></tbody>
+      </table></div>
+    </section>
+
+    <section id="allocate" class="view" hidden>
+      <div class="head"><h2>Allocation</h2></div>
+      <div class="panel adm">
+        <div class="assign">
+          <label>Faculty<select id="aF"></select></label>
+          <label>Unallocated course<select id="aC"></select></label>
+          <button class="btn pri" id="aBtn" data-act="assign">Assign course</button>
+        </div>
+      </div>
+      <div class="cards" id="allocCards"></div>
+      <h3 class="sub">Waiting for a faculty member</h3>
+      <div class="panel" id="freeList"></div>
+    </section>
+
+    <section id="semester" class="view" hidden>
+      <div class="head"><h2>Semester view</h2><label class="inl">Semester <select id="semSel"></select></label></div>
+      <div class="tw"><table>
+        <thead><tr><th>Code</th><th>Course</th><th>Units</th><th>Slot</th><th>Faculty</th></tr></thead>
+        <tbody id="semBody"></tbody>
+      </table></div>
+      <h3 class="sub">Weekly timetable</h3>
+      <div class="tw"><table class="grid" id="grid"></table></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="formDlg">
+  <form id="formEl">
+    <h3 id="formTitle"></h3>
+    <div id="formBody"></div>
+    <div class="dlgacts">
+      <button type="button" class="btn" onclick="this.closest('dialog').close()">Cancel</button>
+      <button class="btn pri">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="loginDlg">
+  <form id="loginEl">
+    <h3>Admin login</h3>
+    <label>Username<input name="u" autocomplete="username" required></label>
+    <label>Password<input name="p" type="password" autocomplete="current-password" required></label>
+    <p id="loginErr" class="err"></p>
+    <p class="muted">Demo credentials: admin / admin123</p>
+    <div class="dlgacts">
+      <button type="button" class="btn" onclick="this.closest('dialog').close()">Cancel</button>
+      <button class="btn pri">Log in</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
