@@ -5,7 +5,7 @@ CA2 Project-Based Assessment, Problem Statement #10.
 A simple web app that helps a college department give courses to teachers and keep track of each teacher's workload.
 
 **GitHub repository:** https://github.com/abhimanyugupta897-ship-it/faculty-workload-planner  
-**Live site:** [add GitHub Pages link]  
+**Live site:** https://abhimanyugupta897-ship-it.github.io/faculty-workload-planner/  
 **Video presentation:** [add video link]
 
 ## Team
