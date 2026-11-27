@@ -6,7 +6,7 @@ A simple web app that helps a college department give courses to teachers and ke
 
 **GitHub repository:** https://github.com/abhimanyugupta897-ship-it/faculty-workload-planner  
 **Live site:** https://abhimanyugupta897-ship-it.github.io/faculty-workload-planner/  
-**Video presentation:** [add video link]
+**Video presentation:** https://drive.google.com/file/d/1lrkSossMCiWV0IwLLeJ-xcsiOjHfc5dI/view?usp=drive_link
 
 ## Team
 
